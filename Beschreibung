@@ -1,0 +1,9 @@
+Fleischfresser:
+- frisst rasendestroyer
+- stirbt wenn er keine Lebenspunkte mehr hat
+
+Wasser:
+- kommt aus der Mitte oben
+- fließt nach unten, wenn die strömung stark genug ist 
+- bildet so eine Trennlinie
+- Grass, Rasendestroyer und Fleischfresser können nicht rüber
