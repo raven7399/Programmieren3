@@ -84,7 +84,7 @@ class Mensch {
     }
 
     platziereSelbstInMatrix() {
-        matrix[this.zeile][this.spalte] = 3;
+        matrix[this.zeile][this.spalte] = 4;
     }
     
 }
