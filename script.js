@@ -1,9 +1,9 @@
 let matrix = erstelleMatrix(100,100);
 let grassArray = []
-// let grass2Array = []
 let rasenDestroyerArray = []
 let fleischfresserArray = []
 let wasserArray = []
+let menschArray = []
 
 function setup() {
   createCanvas(500, 500);
@@ -23,6 +23,10 @@ function setup() {
 
   for (i = 0; i < 1; i+= 1) {
     wasserArray.push(new Wasser(0,50))
+  }
+
+  for (i = 0; i < 2; i+= 1) {
+    menschArray.push(new Mensch(-30,-30))
   }
 
 }
@@ -45,6 +49,10 @@ function draw() {
       
     for (let i = 0; i < wasserArray.length; i++) {
       wasserArray[i].spielzug()
+    }
+
+    for (let i = 0; i < menschArray.length; i++) {
+      menschArray[i].spielzug()
     }
   
     zeichneMatrix();
