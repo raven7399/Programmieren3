@@ -5,7 +5,7 @@ class Mensch {
     constructor(z,s) {
       this.zeile = z;
       this.spalte = s;
-      this.platziereSelbstInMatrix();
+      platziereSelbstInMatrix();
     }
 
     spielzug() {
