@@ -1,3 +1,4 @@
+/*
 class Frau extends Mensch {
 
     platziereSelbstInMatrix() {
@@ -33,10 +34,16 @@ class Frau extends Mensch {
                 löschObjekt(zeile,spalte,grassArray)
               }
   
-              menschArray.push(new Mensch(zeile,spalte))
+              if (randomNumber(1,2) == 1) {
+                mannArray.push(new Mann(zeile,spalte))
+              } else {
+                frauArray.push(new Frau(zeile,spalte))
+              }
+
               return;
             }
           }
         }
       }
 }
+*/

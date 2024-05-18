@@ -1,3 +1,4 @@
+/*
 class Mensch extends LivingBeing {
     lp = 1000;
 
@@ -46,3 +47,4 @@ class Mensch extends LivingBeing {
     }
     
 }
+*/
