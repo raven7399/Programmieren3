@@ -3,8 +3,8 @@ let grassArray = []
 let rasenDestroyerArray = []
 let fleischfresserArray = []
 let wasserArray = []
-let mannArray = []
-let frauArray = []
+// let mannArray = []
+// let frauArray = []
 
 function setup() {
   createCanvas(500, 500);
@@ -25,7 +25,7 @@ function setup() {
   for (i = 0; i < 1; i+= 1) {
     wasserArray.push(new Wasser(0,50))
   }
-
+/*
   for (i = 0; i < 2; i+= 1) {
     mannArray.push(new Mann(-30,-30))
   }
@@ -33,7 +33,7 @@ function setup() {
   for (i = 0; i < 2; i+= 1) {
     frauArray.push(new Frau(-35,-35))
   }
-
+*/
 }
 
 // let i = 0;
@@ -55,11 +55,11 @@ function draw() {
     for (let i = 0; i < wasserArray.length; i++) {
       wasserArray[i].spielzug()
     }
-
+/*
     for (let i = 0; i < menschArray.length; i++) {
       menschArray[i].spielzug()
     }
-  
+*/  
     zeichneMatrix();
   // }
   // i++;

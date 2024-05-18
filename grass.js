@@ -1,12 +1,8 @@
-
-class Grass {
-  zeile;
-  spalte;
+class Grass extends LivingBeing{
   energie = 0;
   constructor(z, s) {
-    this.zeile = z;
-    this.spalte = s;
-    this.platziereSelbstInMatrix();
+    super(z,s)
+    super.platziereSelbstInMatrix(1);
   };
 
   spielzug() {
@@ -49,9 +45,5 @@ class Grass {
       }
     }
   };
-
-  platziereSelbstInMatrix() {
-    matrix[this.zeile][this.spalte] = 1;
-  }
 
 }

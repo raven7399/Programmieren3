@@ -9,4 +9,5 @@ class LivingBeing {
     platziereSelbstInMatrix(num) {
         matrix[this.zeile][this.spalte] = num;
     };
+    
 }

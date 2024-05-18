@@ -1,8 +1,9 @@
 class Fleischfresser extends LivingBeing{
     lp = 1000;
+
     constructor(z,s) {
       super(z,s);
-      this.platziereSelbstInMatrix(3);
+      super.platziereSelbstInMatrix(3);
     }
 
     platziereNeuenFleischfresser() {

@@ -1,9 +1,10 @@
 
 class RasenDestroyer extends LivingBeing {
   alter = 0;
+  
   constructor(z,s) {
       super(z,s);
-      this.platziereSelbstInMatrix(2);
+      super.platziereSelbstInMatrix(2);
   };
 
   spielzug() {
