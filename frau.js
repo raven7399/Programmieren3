@@ -5,8 +5,7 @@ class Frau extends Mensch {
     }
 
     constructor(z,s) {
-      this.zeile = z;
-      this.spalte = s;
+      super(z,s)
       this.platziereSelbstInMatrix();
     }
 
