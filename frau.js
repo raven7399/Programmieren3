@@ -4,12 +4,6 @@ class Frau extends Mensch {
         matrix[this.zeile][this.spalte] = 6;
     }
 
-    constructor(z,s) {
-        this.zeile = z;
-        this.spalte = s;
-        this.platziereSelbstInMatrix();
-      }
-
     platziereNeuenMensch() {
         let richtung = randomNumber(0,8);
         let benachbarteFelder = [

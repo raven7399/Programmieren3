@@ -3,7 +3,8 @@ let grassArray = []
 let rasenDestroyerArray = []
 let fleischfresserArray = []
 let wasserArray = []
-let menschArray = []
+let mannArray = []
+let frauArray = []
 
 function setup() {
   createCanvas(500, 500);
@@ -26,7 +27,11 @@ function setup() {
   }
 
   for (i = 0; i < 2; i+= 1) {
-    menschArray.push(new Mensch(-30,-30))
+    mannArray.push(new Mann(-30,-30))
+  }
+
+  for (i = 0; i < 2; i+= 1) {
+    frauArray.push(new Frau(-35,-35))
   }
 
 }
