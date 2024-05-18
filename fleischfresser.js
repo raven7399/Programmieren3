@@ -1,11 +1,8 @@
-class Fleischfresser {
-    zeile;
-    spalte;
+class Fleischfresser extends LivingBeing{
     lp = 1000;
     constructor(z,s) {
-      this.zeile = z;
-      this.spalte = s;
-      this.platziereSelbstInMatrix();
+      super(z,s);
+      this.platziereSelbstInMatrix(3);
     }
 
     platziereNeuenFleischfresser() {
@@ -81,10 +78,6 @@ class Fleischfresser {
           }
         }
       }
-    }
-
-    platziereSelbstInMatrix() {
-        matrix[this.zeile][this.spalte] = 3;
     }
     
 }

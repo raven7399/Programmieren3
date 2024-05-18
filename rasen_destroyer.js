@@ -1,15 +1,9 @@
 
-class RasenDestroyer {
-  zeile;
-  spalte;
+class RasenDestroyer extends LivingBeing {
   alter = 0;
   constructor(z,s) {
-      this.zeile = z;
-      this.spalte = s;
-      this.platziereSelbstInMatrix();
-  };
-  platziereSelbstInMatrix() {
-      matrix[this.zeile][this.spalte] = 2;
+      super(z,s);
+      this.platziereSelbstInMatrix(2);
   };
 
   spielzug() {
