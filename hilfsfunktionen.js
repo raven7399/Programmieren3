@@ -79,7 +79,9 @@ function zeichneMatrix() {
         } else if (matrix[zeile][spalte] === 4) {
           fill(0,0,255)
         } else if (matrix[zeile][spalte] === 5) {
-          fill(153,50,204)
+          fill(173,216,230)
+        } else if (matrix[zeile][spalte] === 6) {
+          fill(255,192,203)
         }
 
         let k = 500 / matrix.length
