@@ -1,12 +1,5 @@
-class Mensch {
-    zeile;
-    spalte;
+class Mensch extends LivingBeing {
     lp = 1000;
-
-    constructor(z,s) {
-      this.zeile = z;
-      this.spalte = s;
-    }
 
     spielzug() {
       // console.log(this.lp)

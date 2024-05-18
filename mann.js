@@ -1,11 +1,11 @@
 class Mann extends Mensch {
 
     platziereSelbstInMatrix() {
-        matrix[this.zeile][this.spalte] = 5;
+        matrix[super.zeile][super.spalte] = 5;
     }
 
     constructor(z,s) {
-      super(z,s)
+      super.super(z,s);
       this.platziereSelbstInMatrix();
     }
 

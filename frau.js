@@ -1,11 +1,11 @@
 class Frau extends Mensch {
 
     platziereSelbstInMatrix() {
-        matrix[this.zeile][this.spalte] = 6;
+        matrix[super.zeile][super.spalte] = 6;
     }
 
     constructor(z,s) {
-      super(z,s)
+      super.super(z,s);
       this.platziereSelbstInMatrix();
     }
 
