@@ -16,7 +16,7 @@ class RasenDestroyer extends LivingBeing {
         // console.log("hallo!")
         if (this.alter > 55 && this.alter < 60) {
           // console.log("ich bin da")
-          this.platziereNeuenRasenDestroyer();
+          this.multiply(rasenDestroyerArray,RasenDestroyer,1,0);
         } 
       } 
       this.alter++;
@@ -27,49 +27,7 @@ class RasenDestroyer extends LivingBeing {
     }
     
   };
-
-  platziereNeuenRasenDestroyer() {
-      // scan deine umgebung, und schau ob du um dich herum 
-      // ein freies Feld findest.
-      // wenn du ein freies feld findest, dann platziere auf diesem Feld
-      // ein neues Grasobjekt. 
-      // 0 -> OBEN
-      // 1 -> RECHTS
-      // 2 -> LINKS
-      // 3 -> UNTEN
-      let richtung = randomNumber(0, 8);
-      let benachbarteFelder = [
-          [this.zeile - 1, this.spalte],
-          [this.zeile, this.spalte - 1],
-          [this.zeile + 1, this.spalte],
-          [this.zeile, this.spalte + 1],
-          [this.zeile - 1, this.spalte - 1],
-          [this.zeile + 1, this.spalte - 1],
-          [this.zeile + 1, this.spalte + 1],
-          [this.zeile - 1, this.spalte + 1],
-      ]
-
-      for (let i = 0; i < 8; i++) {
-          let j = (richtung + i) % 8;
-          let ausgewähltesFeld = benachbarteFelder[j];
-          if (inMatrix(ausgewähltesFeld)) {
-              if (scanFeld(ausgewähltesFeld, 1) || scanFeld(ausgewähltesFeld, 0)) {
-                  let zeile = ausgewähltesFeld[0];
-                  let spalte = ausgewähltesFeld[1];
-
-                  if (scanFeld(ausgewähltesFeld,1)){
-                    löschObjekt(zeile,spalte,grassArray)
-                  }
-
-                  rasenDestroyerArray.push(new RasenDestroyer(zeile, spalte));
-
-                  return;
-              }
-          }
-
-      }
-
-  }
+  
   //  i=0
   machSchritt() {
       //  i=i+1;
