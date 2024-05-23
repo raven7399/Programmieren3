@@ -1,3 +1,7 @@
+const {random, matrix, fügeInMatrixEin} = require("./hilfsfunktionen")
+var Wasser = require("./wasser")
+
+
 let matrix = erstelleMatrix(100,100);
 let grassArray = []
 let rasenDestroyerArray = []

@@ -100,3 +100,13 @@ function löschObjekt(zeile,spalte,array) {
   }
   return array.splice(index,1)
 }
+
+module.exports = {
+  randomNumber: randomNumber,
+  inMatrix: inMatrix,
+  istGras: istGras,
+  scanFeld: scanFeld,
+  erstelleMatrix: erstelleMatrix,
+  zeichneMatrix: zeichneMatrix,
+  löschObjekt: löschObjekt,
+}
