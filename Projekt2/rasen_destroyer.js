@@ -1,3 +1,6 @@
+const LivingBeing = require("./livingBeing");
+const {matrix, randomNumber, inMatrix, löschObjekt, istGras, rasenDestroyerArray, grassArray} = require("./hilfsfunktionen"); 
+
 module.exports = class RasenDestroyer extends LivingBeing {
   alter = 0;
   

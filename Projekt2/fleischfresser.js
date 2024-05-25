@@ -1,3 +1,6 @@
+const LivingBeing = require("./livingBeing");
+const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt, fleischfresserArray, rasenDestroyerArray} = require("./hilfsfunktionen"); 
+
 module.exports = class Fleischfresser extends LivingBeing{
     lp = 1000;
 

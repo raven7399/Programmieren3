@@ -1,3 +1,5 @@
+const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt} = require("./hilfsfunktionen");
+
 module.exports = class LivingBeing {
     zeile;
     spalte;
@@ -40,7 +42,7 @@ module.exports = class LivingBeing {
                     let spalte = ausgewähltesFeld[1];
   
                     if (scanFeld(ausgewähltesFeld,1)){
-                      löschObjekt(zeile,spalte,grassArray)
+                      löschObjekt(zeile,spalte,array)
                     }
   
                     array.push(new art(zeile, spalte));

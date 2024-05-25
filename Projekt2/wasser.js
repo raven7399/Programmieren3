@@ -1,3 +1,5 @@
+const {matrix, inMatrix, scanFeld, löschObjekt, wasserArray, grassArray, rasenDestroyerArray, fleischfresserArray} = require("./hilfsfunktionen");
+
 module.exports = class Wasser {
   zeile;
   spalte;

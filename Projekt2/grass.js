@@ -1,3 +1,6 @@
+const LivingBeing = require("./livingBeing");
+const {grassArray} = require("./hilfsfunktionen");  
+
 module.exports = class Grass extends LivingBeing{
   energie = 0;
   constructor(z, s) {

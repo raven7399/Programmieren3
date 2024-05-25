@@ -1,19 +1,13 @@
-const {random, matrix, fügeInMatrixEin} = require("./hilfsfunktionen")
-var Wasser = require("./wasser")
-
-
-let matrix = erstelleMatrix(100,100);
-let grassArray = []
-let rasenDestroyerArray = []
-let fleischfresserArray = []
-let wasserArray = []
-// let mannArray = []
-// let frauArray = []
+const {zeichneMatrix, matrix, grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
+const Wasser = require("./wasser");
+const Fleischfresser = require("./fleischfresser");
+const Grass = require("./grass");
+const RasenDestroyer = require("./rasen_destroyer");
 
 function setup() {
-  createCanvas(500, 500);
-  frameRate(15);
-  noStroke()
+  // createCanvas(500, 500);
+  // frameRate(15);
+  // noStroke()
   for (i = 0; i < 1; i+= 1) {
     grassArray.push(new Grass(50,50));
   }
@@ -42,6 +36,7 @@ function setup() {
 
 // let i = 0;
 function draw() {
+  // console.log("is running")
   // if (i < 2000) {
     for (let i = 0; i < grassArray.length; i++) {
       grassArray[i].spielzug()
@@ -70,4 +65,5 @@ function draw() {
 
 }
 
-
+setup();
+setInterval(draw, 1);
