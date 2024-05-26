@@ -1,4 +1,4 @@
-const {zeichneMatrix, matrix, grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
+const {zeichneMatrix, grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
 const Wasser = require("./wasser");
 const Fleischfresser = require("./fleischfresser");
 const Grass = require("./grass");
