@@ -1,8 +1,8 @@
 // import von der setup und draw Funktion und der matrix Variable
 // ...
 
-const {setup, draw} = require("./Projekt2/script");
-const {matrix} = require("./Projekt2/hilfsfunktionen");
+const { setup, draw } = require("./Projekt2/script");
+const { matrix } = require("./Projekt2/hilfsfunktionen");
 
 const express = require('express');
 const app = express();
@@ -20,7 +20,7 @@ app.use(express.static('client'));
 
 // wenn ein Benutzer die Seite öffnet, wird er auf die index.html Datei weitergeleitet
 app.get('/', (req, res) => {
-    res.redirect('/index.html');
+    res.redirect('/index2.html');
 });
 
 // wir starten den Server auf dem Port 3000
@@ -53,26 +53,30 @@ function transformMatrix(matrix) {
 
 
     let farbTabelle = [
-     "255,220,100",
-     "68, 189, 47",
-     "255, 0, 0",
-     "0,0,0",
-     "0,0,255",
-     "173,216,230",
-     "255,192,203",
+        "rgb(255,220,100)",
+        "rgb(68, 189, 47)",
+        "rgb(255, 0, 0)",
+        "rgb(0,0,0)",
+        "rgb(0,0,255)",
+        "rgb(173,216,230)",
+        "rgb(255,192,203)",
     ]
 
 
     let newMatrix = []
-    
-    for (let zeile = 0; zeile < matrix.length; zeile++) {
-        for (let spalte = 0; spalte < matrix.length; spalte++) {
-            let nummer = matrix[zeile][spalte];
+
+
+    for (let i = 0; i < matrix.length; i++) {
+        let zeile = []
+        for (let j = 0; j < matrix[i].length; j++) {
+
+            let nummer = matrix[i][j];
             let farbe = farbTabelle[nummer];
+
             zeile.push(farbe);
+
         }
         newMatrix.push(zeile);
     }
-
     return newMatrix
 }

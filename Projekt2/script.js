@@ -1,4 +1,4 @@
-const {zeichneMatrix, grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
+const {/* zeichneMatrix, */grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
 const Wasser = require("./wasser");
 const Fleischfresser = require("./fleischfresser");
 const Grass = require("./grass");
@@ -59,9 +59,13 @@ function draw() {
       menschArray[i].spielzug()
     }
 */  
-    zeichneMatrix();
+  // zeichneMatrix();
   // }
   // i++;
 
 }
 
+module.exports = {
+  setup: setup,
+  draw: draw,
+}

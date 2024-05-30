@@ -72,7 +72,7 @@ function erstelleMatrix(spalten,zeilen) {
 
     return matrix;
 }
-
+/*
 function zeichneMatrix() {
   for (let zeile = 0; zeile < matrix.length; zeile++) {
     for (let spalte = 0; spalte < matrix.length; spalte++) {
@@ -107,6 +107,7 @@ function zeichneMatrix() {
   }
   process.stdout.write("\x1b[" + matrix.length + "A")
 }
+*/
 
 function löschObjekt(zeile,spalte,array) {
   let index;
@@ -124,7 +125,7 @@ module.exports = {
   istGras: istGras,
   scanFeld: scanFeld,
   erstelleMatrix: erstelleMatrix,
-  zeichneMatrix: zeichneMatrix,
+  // zeichneMatrix: zeichneMatrix,
   löschObjekt: löschObjekt,
   grassArray: grassArray,
   rasenDestroyerArray: rasenDestroyerArray,
