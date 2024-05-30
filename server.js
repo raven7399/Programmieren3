@@ -50,5 +50,29 @@ io.on('connection', (socket) => {
 function transformMatrix(matrix) {
     // Wenn ihr Zahlen in der Matrix habt, können sie hier in Farben umgewandelt werden
     // ...
+
+
+    let farbTabelle = [
+     "255,220,100",
+     "68, 189, 47",
+     "255, 0, 0",
+     "0,0,0",
+     "0,0,255",
+     "173,216,230",
+     "255,192,203",
+    ]
+
+
+    let newMatrix = []
+    
+    for (let zeile = 0; zeile < matrix.length; zeile++) {
+        for (let spalte = 0; spalte < matrix.length; spalte++) {
+            let nummer = matrix[zeile][spalte];
+            let farbe = farbTabelle[nummer];
+            zeile.push(farbe);
+        }
+        newMatrix.push(zeile);
+    }
+
     return newMatrix
 }
