@@ -11,7 +11,8 @@ module.exports = class RasenDestroyer extends LivingBeing {
 
   spielzug() {
     // console.log(this.alter)
-    if (this.alter < 99) {
+    // console.log(rasenDestroyerArray)
+    if (this.alter < 73) {
       let schritt = this.machSchritt();
       // console.log("1,2,3,4")
       if (schritt === true) {
@@ -23,7 +24,7 @@ module.exports = class RasenDestroyer extends LivingBeing {
       } 
       this.alter++;
     } else {
-      // console.log("los geht's")
+      console.log("los geht's")
       matrix[this.zeile][this.spalte] = 0;
       löschObjekt(this.zeile, this.spalte, rasenDestroyerArray); 
     }
