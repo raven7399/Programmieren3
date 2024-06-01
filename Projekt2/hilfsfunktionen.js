@@ -3,8 +3,8 @@ let grassArray = []
 let rasenDestroyerArray = []
 let fleischfresserArray = []
 let wasserArray = []
-// let mannArray = []
-// let frauArray = []
+let mannArray = []
+let frauArray = []
 
 function randomNumber(min,max) {
 	return Math.floor(Math.random()*(max-min) + min);
@@ -132,4 +132,6 @@ module.exports = {
   fleischfresserArray:fleischfresserArray,
   wasserArray: wasserArray,
   matrix: matrix,
+  mannArray: mannArray,
+  frauArray: frauArray,
 }

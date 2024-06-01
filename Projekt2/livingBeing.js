@@ -3,6 +3,7 @@ const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt, grassArray} = req
 module.exports = class LivingBeing {
     zeile;
     spalte;
+    
     constructor(z,s) {
         this.zeile = z;
         this.spalte = s;
@@ -52,5 +53,34 @@ module.exports = class LivingBeing {
             }
   
         }
+    }
+
+    kämpfen(art,array,aktArt) {
+      let richtung = randomNumber(0,8);
+      let benachbarteFelder = [
+        [this.zeile-1,this.spalte],
+        [this.zeile,this.spalte-1],
+        [this.zeile+1,this.spalte],
+        [this.zeile,this.spalte+1],
+        [this.zeile-1,this.spalte-1],
+        [this.zeile+1,this.spalte-1],
+        [this.zeile+1,this.spalte+1],
+        [this.zeile-1,this.spalte+1],
+      ]
+      for (let i = 0; i < 8; i++) {
+        let j = (richtung + i) % 8
+        let ausgewähltesFeld = benachbarteFelder[j];
+        if (inMatrix(ausgewähltesFeld)) {
+          if (scanFeld(ausgewähltesFeld,art)) {
+            matrix[this.zeile][this.spalte] = 0;
+            löschObjekt(ausgewähltesFeld[0],ausgewähltesFeld[1],array)
+            this.zeile = ausgewähltesFeld[0];
+            this.spalte = ausgewähltesFeld[1];
+            matrix[this.zeile][this.spalte] = aktArt;
+            this.lp = this.lp+10;
+            return;
+          }
+        }
+      }
     }
 }

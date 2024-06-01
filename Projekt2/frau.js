@@ -1,49 +1,129 @@
-/*
-class Frau extends Mensch {
+const LivingBeing = require("./livingBeing");
+const Mann = require("./mann");
+const { matrix, randomNumber, inMatrix, löschObjekt, grassArray, frauArray, rasenDestroyerArray, scanFeld, mannArray } = require("./hilfsfunktionen");
 
-    platziereSelbstInMatrix() {
-        matrix[super.zeile][super.spalte] = 6;
-    }
+module.exports = class Frau extends LivingBeing {
 
-    constructor(z,s) {
-      super.super(z,s);
-      this.platziereSelbstInMatrix();
-    }
+  alter = 0;
+  lp = 1000;
 
-    platziereNeuenMensch() {
-        let richtung = randomNumber(0,8);
+  constructor(z, s) {
+    super(z, s);
+    super.platziereSelbstInMatrix(6);
+  }
+
+  spielzug() {
+    // console.log(this.alter)
+    // console.log(rasenDestroyerArray)
+    if (this.alter < 210 && this.lp > 0) {
+      this.essen();
+      if (this.alter > 60 && this.alter < 100 && i > 9) {
+        // console.log("ich bin da")
+        let richtung = randomNumber(0, 8);
         let benachbarteFelder = [
-          [this.zeile-1,this.spalte],
-          [this.zeile,this.spalte-1],
-          [this.zeile+1,this.spalte],
-          [this.zeile,this.spalte+1],
-          [this.zeile-1,this.spalte-1],
-          [this.zeile+1,this.spalte-1],
-          [this.zeile+1,this.spalte+1],
-          [this.zeile-1,this.spalte+1],
+          [this.zeile - 1, this.spalte],
+          [this.zeile, this.spalte - 1],
+          [this.zeile + 1, this.spalte],
+          [this.zeile, this.spalte + 1],
+          [this.zeile - 1, this.spalte - 1],
+          [this.zeile + 1, this.spalte - 1],
+          [this.zeile + 1, this.spalte + 1],
+          [this.zeile - 1, this.spalte + 1],
         ]
         for (let i = 0; i < 8; i++) {
           let j = (richtung + i) % 8
           let ausgewähltesFeld = benachbarteFelder[j];
           if (inMatrix(ausgewähltesFeld)) {
-            if (scanFeld(ausgewähltesFeld,0) || scanFeld(ausgewähltesFeld, 1)) {
-              let zeile = ausgewähltesFeld[0];
-              let spalte = ausgewähltesFeld[1];
-  
-              if (scanFeld(ausgewähltesFeld,1)){
-                löschObjekt(zeile,spalte,grassArray)
-              }
-  
-              if (randomNumber(1,2) == 1) {
-                mannArray.push(new Mann(zeile,spalte))
-              } else {
-                frauArray.push(new Frau(zeile,spalte))
-              }
-
+            if (scanFeld(ausgewähltesFeld, 5)) {
+              this.platziereNeuenMensch();
               return;
             }
           }
+          
+        }
+        i = 0;
+      } 
+      this.alter++;
+      this.lp--;
+      i++;
+    } else {
+        // console.log("los geht's")
+        matrix[this.zeile][this.spalte] = 0;
+        löschObjekt(this.zeile, this.spalte, frauArray);
+    }
+  }
+
+  essen() {
+    let richtung = randomNumber(0, 8);
+    let benachbarteFelder = [
+      [this.zeile - 1, this.spalte],
+      [this.zeile, this.spalte - 1],
+      [this.zeile + 1, this.spalte],
+      [this.zeile, this.spalte + 1],
+      [this.zeile - 1, this.spalte - 1],
+      [this.zeile + 1, this.spalte - 1],
+      [this.zeile + 1, this.spalte + 1],
+      [this.zeile - 1, this.spalte + 1],
+    ]
+    for (let i = 0; i < 8; i++) {
+      let j = (richtung + i) % 8
+      let ausgewähltesFeld = benachbarteFelder[j];
+      if (inMatrix(ausgewähltesFeld)) {
+        if (scanFeld(ausgewähltesFeld, 2)) {
+          matrix[this.zeile][this.spalte] = 0;
+          löschObjekt(ausgewähltesFeld[0], ausgewähltesFeld[1], rasenDestroyerArray)
+          this.zeile = ausgewähltesFeld[0];
+          this.spalte = ausgewähltesFeld[1];
+          matrix[this.zeile][this.spalte] = 6;
+          this.lp = this.lp + 10;
+          return;
+        }
+        if (scanFeld(ausgewähltesFeld, 1)) {
+          matrix[this.zeile][this.spalte] = 0;
+          löschObjekt(ausgewähltesFeld[0], ausgewähltesFeld[1], grassArray)
+          this.zeile = ausgewähltesFeld[0];
+          this.spalte = ausgewähltesFeld[1];
+          matrix[this.zeile][this.spalte] = 6;
+          this.lp = this.lp + 10;
+          return;
         }
       }
+    }
+  }
+
+  platziereNeuenMensch() {
+    let richtung = randomNumber(0, 8);
+    let benachbarteFelder = [
+      [this.zeile - 1, this.spalte],
+      [this.zeile, this.spalte - 1],
+      [this.zeile + 1, this.spalte],
+      [this.zeile, this.spalte + 1],
+      [this.zeile - 1, this.spalte - 1],
+      [this.zeile + 1, this.spalte - 1],
+      [this.zeile + 1, this.spalte + 1],
+      [this.zeile - 1, this.spalte + 1],
+    ]
+    for (let i = 0; i < 8; i++) {
+      let j = (richtung + i) % 8
+      let ausgewähltesFeld = benachbarteFelder[j];
+      if (inMatrix(ausgewähltesFeld)) {
+        if (scanFeld(ausgewähltesFeld, 0) || scanFeld(ausgewähltesFeld, 1)) {
+          let zeile = ausgewähltesFeld[0];
+          let spalte = ausgewähltesFeld[1];
+
+          if (scanFeld(ausgewähltesFeld, 1)) {
+            löschObjekt(zeile, spalte, grassArray)
+          }
+
+          if (randomNumber(1, 2) == 1) {
+            mannArray.push(new Mann(zeile, spalte))
+          } else {
+            frauArray.push(new Frau(zeile, spalte))
+          }
+
+          return;
+        }
+      }
+    }
+  }
 }
-*/

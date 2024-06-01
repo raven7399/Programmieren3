@@ -1,8 +1,10 @@
-const {/* zeichneMatrix, */grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray} = require("./hilfsfunktionen");
+const {/* zeichneMatrix, */grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray, frauArray, mannArray} = require("./hilfsfunktionen");
 const Wasser = require("./wasser");
 const Fleischfresser = require("./fleischfresser");
 const Grass = require("./grass");
 const RasenDestroyer = require("./rasen_destroyer");
+const Mann = require("./mann");
+const Frau = require("./frau");
 
 function setup() {
   // createCanvas(500, 500);
@@ -23,15 +25,15 @@ function setup() {
   for (i = 0; i < 1; i+= 1) {
     wasserArray.push(new Wasser(0,50))
   }
-/*
-  for (i = 0; i < 2; i+= 1) {
-    mannArray.push(new Mann(-30,-30))
+
+  for (i = 0; i < 1; i+= 1) {
+    frauArray.push(new Frau(61,61))
   }
 
-  for (i = 0; i < 2; i+= 1) {
-    frauArray.push(new Frau(-35,-35))
+  for (i = 0; i < 1; i+= 1) {
+    mannArray.push(new Mann(60,60))
   }
-*/
+
 }
 
 // let i = 0;
@@ -54,11 +56,15 @@ function draw() {
     for (let i = 0; i < wasserArray.length; i++) {
       wasserArray[i].spielzug()
     }
-/*
-    for (let i = 0; i < menschArray.length; i++) {
-      menschArray[i].spielzug()
+
+    for (let i = 0; i < mannArray.length; i++) {
+      mannArray[i].spielzug()
     }
-*/  
+
+    for (let i = 0; i < frauArray.length; i++) {
+      frauArray[i].spielzug()
+    }
+
   // zeichneMatrix();
   // }
   // i++;

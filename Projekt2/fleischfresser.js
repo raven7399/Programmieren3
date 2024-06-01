@@ -1,5 +1,5 @@
 const LivingBeing = require("./livingBeing");
-const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt, fleischfresserArray, rasenDestroyerArray} = require("./hilfsfunktionen"); 
+const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt, fleischfresserArray, rasenDestroyerArray, mannArray} = require("./hilfsfunktionen"); 
 
 module.exports = class Fleischfresser extends LivingBeing{
     lp = 1000;
@@ -47,6 +47,10 @@ module.exports = class Fleischfresser extends LivingBeing{
             this.spalte = ausgewähltesFeld[1];
             matrix[this.zeile][this.spalte] = 3;
             this.lp = this.lp+100
+            return;
+          }
+          if (scanFeld(ausgewähltesFeld,5) && randomNumber(1,2) == 1) {
+            this.kämpfen(5,mannArray,3);
             return;
           }
         }
