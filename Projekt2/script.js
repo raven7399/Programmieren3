@@ -1,4 +1,4 @@
-const {/* zeichneMatrix, */grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray, frauArray, mannArray} = require("./hilfsfunktionen");
+const {/* zeichneMatrix, */grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray, frauArray, mannArray, statistiken, anzahl} = require("./hilfsfunktionen");
 const Wasser = require("./wasser");
 const Fleischfresser = require("./fleischfresser");
 const Grass = require("./grass");
@@ -12,26 +12,32 @@ function setup() {
   // noStroke()
   for (i = 0; i < 1; i+= 1) {
     grassArray.push(new Grass(50,50));
+    statistiken("g");
   }
 
   for (i = 0; i < 1; i+= 1) {
     rasenDestroyerArray.push(new RasenDestroyer(45,45));
+    statistiken("rd");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    fleischfresserArray.push(new Fleischfresser(35,35))
+    fleischfresserArray.push(new Fleischfresser(35,35));
+    statistiken("ff");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    wasserArray.push(new Wasser(0,50))
+    wasserArray.push(new Wasser(0,50));
+    statistiken("w");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    frauArray.push(new Frau(61,61))
+    frauArray.push(new Frau(55,50));
+    statistiken("f");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    mannArray.push(new Mann(60,60))
+    mannArray.push(new Mann(55,49));
+    statistiken("m");
   }
 
 }
@@ -64,6 +70,8 @@ function draw() {
     for (let i = 0; i < frauArray.length; i++) {
       frauArray[i].spielzug()
     }
+
+    console.log(anzahl.grass,anzahl.ff,anzahl.rd,anzahl.wasser,anzahl.m,anzahl.f);
 
   // zeichneMatrix();
   // }

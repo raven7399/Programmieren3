@@ -1,5 +1,5 @@
 const LivingBeing = require("./livingBeing");
-const {matrix, randomNumber, inMatrix, löschObjekt, istGras, rasenDestroyerArray, grassArray} = require("./hilfsfunktionen"); 
+const {matrix, randomNumber, inMatrix, löschObjekt, istGras, rasenDestroyerArray, grassArray, statistiken} = require("./hilfsfunktionen"); 
 
 module.exports = class RasenDestroyer extends LivingBeing {
   alter = 0;
@@ -20,6 +20,7 @@ module.exports = class RasenDestroyer extends LivingBeing {
         if (this.alter > 55 && this.alter < 60) {
           // console.log("ich bin da")
           this.multiply(rasenDestroyerArray,RasenDestroyer,1,0);
+          statistiken("rd");
         } 
       } 
       this.alter++;

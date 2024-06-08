@@ -1,6 +1,6 @@
 const LivingBeing = require("./livingBeing");
 const Mann = require("./mann");
-const { matrix, randomNumber, inMatrix, löschObjekt, grassArray, frauArray, rasenDestroyerArray, scanFeld, mannArray } = require("./hilfsfunktionen");
+const { matrix, randomNumber, inMatrix, löschObjekt, grassArray, frauArray, rasenDestroyerArray, scanFeld, mannArray, statistiken} = require("./hilfsfunktionen");
 
 module.exports = class Frau extends LivingBeing {
 
@@ -11,13 +11,15 @@ module.exports = class Frau extends LivingBeing {
     super(z, s);
     super.platziereSelbstInMatrix(6);
   }
+  
+  i = 90;
 
   spielzug() {
     // console.log(this.alter)
     // console.log(rasenDestroyerArray)
     if (this.alter < 210 && this.lp > 0) {
       this.essen();
-      if (this.alter > 60 && this.alter < 100 && i > 9) {
+      if (this.alter > 50 && this.alter < 100 && i > 9 && this.essen == true) {
         // console.log("ich bin da")
         let richtung = randomNumber(0, 8);
         let benachbarteFelder = [
@@ -115,10 +117,12 @@ module.exports = class Frau extends LivingBeing {
             löschObjekt(zeile, spalte, grassArray)
           }
 
-          if (randomNumber(1, 2) == 1) {
-            mannArray.push(new Mann(zeile, spalte))
+          if (randomNumber(0, 2) == 1) {
+            mannArray.push(new Mann(zeile, spalte));
+            statistiken("m");
           } else {
-            frauArray.push(new Frau(zeile, spalte))
+            frauArray.push(new Frau(zeile, spalte));
+            statistiken("f");
           }
 
           return;

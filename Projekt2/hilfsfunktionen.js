@@ -6,6 +6,15 @@ let wasserArray = []
 let mannArray = []
 let frauArray = []
 
+let anzahl = {
+  grass: 0,
+  ff: 0,
+  wasser: 0,
+  rd: 0,
+  m: 0,
+  f: 0
+}
+
 function randomNumber(min,max) {
 	return Math.floor(Math.random()*(max-min) + min);
 }
@@ -119,6 +128,27 @@ function löschObjekt(zeile,spalte,array) {
   return array.splice(index,1)
 }
 
+function statistiken(art) {
+  if (art == "g") {
+    anzahl.grass++
+  }
+  if (art == "ff") {
+    anzahl.ff++
+  }
+  if (art == "w") {
+    anzahl.wasser++
+  }
+  if (art == "m") {
+    anzahl.m++
+  }
+  if (art == "f") {
+    anzahl.f++
+  }
+  if (art == "rd") {
+    anzahl.rd++
+  }
+}
+
 module.exports = {
   randomNumber: randomNumber,
   inMatrix: inMatrix,
@@ -127,6 +157,7 @@ module.exports = {
   erstelleMatrix: erstelleMatrix,
   // zeichneMatrix: zeichneMatrix,
   löschObjekt: löschObjekt,
+  statistiken: statistiken,
   grassArray: grassArray,
   rasenDestroyerArray: rasenDestroyerArray,
   fleischfresserArray:fleischfresserArray,
@@ -134,4 +165,5 @@ module.exports = {
   matrix: matrix,
   mannArray: mannArray,
   frauArray: frauArray,
+  anzahl: anzahl
 }

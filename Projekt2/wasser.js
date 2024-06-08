@@ -1,4 +1,4 @@
-const {matrix, inMatrix, scanFeld, löschObjekt, wasserArray, grassArray, rasenDestroyerArray, fleischfresserArray} = require("./hilfsfunktionen");
+const {matrix, inMatrix, scanFeld, löschObjekt, wasserArray, grassArray, rasenDestroyerArray, fleischfresserArray, statistiken} = require("./hilfsfunktionen");
 
 module.exports = class Wasser {
   zeile;
@@ -50,6 +50,7 @@ module.exports = class Wasser {
         }
 
         wasserArray.push(new Wasser(zeile, spalte));
+        statistiken("w");
         return;
         }
 

@@ -1,10 +1,11 @@
 const LivingBeing = require("./livingBeing");
-const {grassArray} = require("./hilfsfunktionen");  
+const {grassArray, statistiken} = require("./hilfsfunktionen");  
 
-module.exports = class Grass extends LivingBeing{
+module.exports = class Grass extends LivingBeing {
   energie = 0;
+
   constructor(z, s) {
-    super(z,s)
+    super(z,s);
     super.platziereSelbstInMatrix(1);
   };
 
@@ -12,6 +13,7 @@ module.exports = class Grass extends LivingBeing{
     // console.log(this.energie)
     if (this.energie > 4) {
       this.multiply(grassArray,Grass,0);
+      statistiken("g");
       this.energie = 0;
     } else {
       this.energie++;
