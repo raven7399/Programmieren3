@@ -17,9 +17,9 @@ module.exports = class Frau extends LivingBeing {
   spielzug() {
     // console.log(this.alter)
     // console.log(rasenDestroyerArray)
-    if (this.alter < 210 && this.lp > 0) {
+    if (this.alter < 300 && this.lp > 0) {
       this.essen();
-      if (this.alter > 50 && this.alter < 100 && i > 9 && this.essen == true) {
+      if (this.alter > 5 && this.alter < 210 && i > 9 && this.essen == true) {
         // console.log("ich bin da")
         let richtung = randomNumber(0, 8);
         let benachbarteFelder = [

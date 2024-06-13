@@ -11,17 +11,22 @@ function setup() {
   // frameRate(15);
   // noStroke()
   for (i = 0; i < 1; i+= 1) {
-    grassArray.push(new Grass(50,50));
+    grassArray.push(new Grass(35,50));
     statistiken("g");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    rasenDestroyerArray.push(new RasenDestroyer(45,45));
+    grassArray.push(new Grass(75,50));
+    statistiken("g");
+  }
+
+  for (i = 0; i < 1; i+= 1) {
+    rasenDestroyerArray.push(new RasenDestroyer(35,45));
     statistiken("rd");
   }
 
   for (i = 0; i < 1; i+= 1) {
-    fleischfresserArray.push(new Fleischfresser(35,35));
+    fleischfresserArray.push(new Fleischfresser(15,35));
     statistiken("ff");
   }
 
@@ -30,13 +35,10 @@ function setup() {
     statistiken("w");
   }
 
-  for (i = 0; i < 1; i+= 1) {
-    frauArray.push(new Frau(55,50));
+  for (i = 0; i < 10; i++) {
+    frauArray.push(new Frau(71,45+i));
     statistiken("f");
-  }
-
-  for (i = 0; i < 1; i+= 1) {
-    mannArray.push(new Mann(55,49));
+    mannArray.push(new Mann(70,45+i));
     statistiken("m");
   }
 
@@ -71,7 +73,7 @@ function draw() {
       frauArray[i].spielzug()
     }
 
-    console.log(anzahl.grass,anzahl.ff,anzahl.rd,anzahl.wasser,anzahl.m,anzahl.f);
+    // console.log(anzahl.grass,anzahl.ff,anzahl.rd,anzahl.wasser,anzahl.m,anzahl.f);
 
   // zeichneMatrix();
   // }
