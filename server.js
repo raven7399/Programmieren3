@@ -2,7 +2,7 @@
 // ...
 
 const { setup, draw } = require("./Projekt2/script");
-const { matrix } = require("./Projekt2/hilfsfunktionen");
+const { matrix, anzahl, grassArray, rasenDestroyerArray, fleischfresserArray, wasserArray, mannArray, frauArray } = require("./Projekt2/hilfsfunktionen");
 
 const express = require('express');
 const app = express();
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 server.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
-
+setup();
 // wenn ein Benutzer eine Verbindung zum Server herstellt, wird diese Funktion ausgeführt
 io.on('connection', (socket) => {
     console.log('a user connected');
@@ -38,10 +38,20 @@ io.on('connection', (socket) => {
         clearInterval(intetval);
     });
 
-    setup();
+    
     intetval = setInterval(() => {
         draw();
-        socket.emit('matrix', transformMatrix(matrix));
+        data = {
+            matrix: transformMatrix(matrix),
+            anzahl: anzahl,
+            grassArray: grassArray,
+            rasenDestroyerArray: rasenDestroyerArray,
+            fleischfresserArray: fleischfresserArray,
+            wasserArray: wasserArray,
+            mannArray: mannArray,
+            frauArray: frauArray
+        }
+        socket.emit('data', data);
     }, 30);
 });
 

@@ -1,5 +1,7 @@
 const {matrix, randomNumber, inMatrix, scanFeld, löschObjekt, grassArray} = require("./hilfsfunktionen");
 
+
+
 module.exports = class LivingBeing {
     zeile;
     spalte;
@@ -48,11 +50,12 @@ module.exports = class LivingBeing {
   
                     array.push(new art(zeile, spalte));
   
-                    return;
+                    return true;
                 }
             }
   
         }
+        return false;
     }
 
     kämpfen(art,array,aktArt) {

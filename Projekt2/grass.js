@@ -12,8 +12,11 @@ module.exports = class Grass extends LivingBeing {
   spielzug() {
     // console.log(this.energie)
     if (this.energie > 4) {
-      this.multiply(grassArray,Grass,0);
-      statistiken("g");
+      let erfolgreich =  this.multiply(grassArray,Grass,0);
+      if(erfolgreich){
+        statistiken("g")
+      }
+      
       this.energie = 0;
     } else {
       this.energie++;
