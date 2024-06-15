@@ -35,10 +35,17 @@ function setup() {
     statistiken("w");
   }
 
-  for (i = 0; i < 10; i++) {
-    frauArray.push(new Frau(71,45+i));
+  for (i = 0; i < 5; i+=2) {
+    frauArray.push(new Frau(69,48+i));
     statistiken("f");
-    mannArray.push(new Mann(70,45+i));
+    mannArray.push(new Mann(69,47+i));
+    statistiken("m");
+  }
+
+  for (i = 0; i < 5; i+=2) {
+    frauArray.push(new Frau(70,47+i));
+    statistiken("f");
+    mannArray.push(new Mann(70,48+i));
     statistiken("m");
   }
 

@@ -17,9 +17,9 @@ module.exports = class Frau extends LivingBeing {
   spielzug() {
     // console.log(this.alter)
     // console.log(rasenDestroyerArray)
-    if (this.alter < 300 && this.lp > 0) {
-      this.essen();
-      if (this.alter > 5 && this.alter < 210 && i > 9 && this.essen == true) {
+    if (this.alter < 210 && this.lp > 0) {
+      let erfolg = this.essen();
+      if ( i > 9 && erfolg == true) {
         // console.log("ich bin da")
         let richtung = randomNumber(0, 8);
         let benachbarteFelder = [
@@ -87,10 +87,12 @@ module.exports = class Frau extends LivingBeing {
           this.spalte = ausgewähltesFeld[1];
           matrix[this.zeile][this.spalte] = 6;
           this.lp = this.lp + 10;
-          return;
+          
+          return true;
         }
       }
     }
+    return false;
   }
 
   platziereNeuenMensch() {
